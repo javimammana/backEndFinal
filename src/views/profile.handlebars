@@ -1,12 +1,12 @@
 <div class="content">
     <div class="w100 flex colum center">
         <h1>Perfil</h1>
-        <div class="border flex w100">
+        <div class="border flex w100 profilePrincipal">
             <div class="imgProfile">
                 <img src="./img/profile/{{user.img}}" alt="Profile">
             </div>
             <div class="w100">
-                <div class="flex between w100">
+                <div class="flex between w100 profileInfo">
                     <div>
                         <p>Nombre: {{user.first_name}}</p><p>Apellido: {{user.last_name}}</p>
                     </div>
@@ -18,7 +18,7 @@
                     <p>email: {{user.email}}</p>
                     {{#if user.admin}}
                     {{else}}
-                    <button>Cambiar Contraseña</button>
+                    {{!-- <button>Cambiar Contraseña</button> --}}
                     {{/if}}
                 </div>
             </div>
@@ -52,15 +52,15 @@
             <div class="border w100">
                 <p>Foto DNI Frente y Dorso</p>
                 {{#if docs.identificacion}}
-                    <div class="w100 flex between">
+                    <div class="w100 flex between inputProfile">
                         <p>{{docs.identificacion}}</p>
                         <button class="btn btnRED" onclick="deleteDoc('identificacion', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
                         <div class="w100">
-                            <div class="flex file w100 between">
-                                <input type="file" name="identificacion" required>
+                            <div class="flex file w100 between inputProfile">
+                                <input class="w100" type="file" name="identificacion" required>
                                 <button class="btn btnWARNIG" type="submit">Enviar!</button>
                             </div>
                         </div>
@@ -71,15 +71,15 @@
             <div class="border w100">
                 <p>Constancia de Cuenta</p>
                 {{#if docs.cuenta}}
-                    <div class="w100 flex between">
+                    <div class="w100 flex between inputProfile">
                         <p>{{docs.cuenta}}</p>
                         <button class="btn btnRED" onclick="deleteDoc('cuenta', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
                         <div class="w100">
-                            <div class="flex file w100 between">
-                                <input type="file" name="cuenta" required>
+                            <div class="flex file w100 between inputProfile">
+                                <input class="w100" type="file" name="cuenta" required>
                                 <button class="btn btnWARNIG" type="submit">Enviar!</button>
                             </div>
                         </div>
@@ -90,15 +90,15 @@
             <div class="border w100">
                 <p>Servicio donde figure el Domicilio</p>
                 {{#if docs.domicilio}}
-                    <div class="w100 flex between">
+                    <div class="w100 flex between inputProfile">
                         <p>{{docs.domicilio}}</p>
                         <button class="btn btnRED" onclick="deleteDoc('domicilio', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
                         <div class="w100">
-                            <div class="flex file w100 between">
-                                <input type="file" name="domicilio" required>
+                            <div class="flex file w100 between inputProfile">
+                                <input class="w100" type="file" name="domicilio" required>
                                 <button class="btn btnWARNIG" type="submit">Enviar!</button>
                             </div>
                         </div>

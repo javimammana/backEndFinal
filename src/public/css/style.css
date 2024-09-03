@@ -69,7 +69,7 @@
 
   .btn {
     border: #1c1c1c solid 1px;
-    border-radius: 3px;
+    border-radius: 3px 3px 10px 3px;
     width: 100%;
     padding: 5px;
     cursor: pointer;
@@ -214,46 +214,30 @@
     margin-left: 10px;
   }
 
-  /*    FOOTER     */
+/*   FOTER    */
 
-.contFooter {
-  background-color: #1c1c1c;
-  /* height: 25px; */
+.footer {
   width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.footerClass {
   position: fixed;
-  width: 100%;
   bottom: 0px;
+  background-color: #1c1c1c;
+  color: #aeaeae;
 }
 
-.footerLine {
-  display: flex;
-  justify-content: space-between;
+.footerParams {
+  max-width: 1000px;
+  margin: 15px 0px;
   align-items: center;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 20px;
 }
 
-.footerLine p {
+.footerParams p {
   font-size: 8px;
-  color: #ececec6b;
+  color: #626262;
 }
 
-.footerRedes {
-  display: flex;
-}
-
-.footerRedes li {
-  margin: 8px;
-}
-
-.footerRedes li img {
-  width: 20px;
+.footerParams ul li img {
+  width: 25px;
+  margin: 0px 5px;
 }
 
 /*     MAIN     */
@@ -434,6 +418,7 @@
   justify-content: center;
   padding: 5px;
   margin-top: 120px;
+  margin-bottom: 100px;
 }
 
 /*   PROFILE   */
@@ -633,9 +618,34 @@
       width: 100%;
       margin: 5px 0;
     }
+
+    .cartPrice {
+      flex-direction: column;
+    }
+
+    .inputProfile{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .inputProfile button {
+      margin-top: 10px;
+    }
+
+    .profileInfo {
+      flex-direction: column;
+    }
   }
 
   @media screen and (max-width: 630PX) {
+
+    .footerParams {
+      flex-direction: column-reverse;
+    }
+
+    .footerParams p {
+      text-align: center;
+    }
 
     /*    NAVBAR   */
 
@@ -704,6 +714,10 @@
       cursor: pointer;
     }
 
+    .cartPrincipal {
+      flex-direction: column;
+    }
+
     /*   FOOTER   */
 
     .footerLine {
@@ -719,6 +733,41 @@
 
     .menuRT {
       flex-direction: column;
+    }
+
+    .profilePrincipal {
+      flex-direction: column;
+    }
+    
+    .imgProducts {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .imgProducts img {
+      max-width: 250px;
+    }
+
+    .productPrincipal {
+      flex-direction: column;
+      align-content: center;
+    }
+
+    .productButton {
+      margin-right: 15px;
+    }
+
+    .favoritePrincipal {
+      flex-direction: column;
+      align-items: center;
+    }
+    .faboriteButton {
+      margin-top: 10px;
+    }
+
+    .favoriteInfo {
+      justify-content: center;
     }
   }
 

@@ -1,5 +1,6 @@
 **/.DS_Store
 node_modules
+.gitignore
 error.log
 .env.desarrollo
 .env.produccion

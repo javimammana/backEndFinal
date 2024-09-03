@@ -4,8 +4,8 @@
         <h1>Tu Productos Favoritos</h1>
         {{#each favorites}}
         <div class="w100">
-                <div class="border flex w100 between">
-                    <div class="flex w100">
+                <div class="border flex w100 between favoritePrincipal">
+                    <div class="flex w100 favoriteInfo">
                         <div class="imgFav">
                             <img class="" src="img/products/{{this.img}}">
                         </div>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex">
+                    <div class="flex faboriteButton">
                         <form action="/api/products/{{this._id}}/favorite/{{../user.email}}/favorite" method="POST" class="favBTN">
                             <button class="btnFavorite"><img src="img/{{#if this.favorite}}favorite.png{{else}}nofavorite.png{{/if}}" alt=""></button>
                         </form>
