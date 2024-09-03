@@ -1,0 +1,168 @@
+<div class="content">
+    <div class="w100 flex colum center">
+        <h1>Perfil</h1>
+        <div class="border flex w100">
+            <div class="imgProfile">
+                <img src="./img/profile/{{user.img}}" alt="Profile">
+            </div>
+            <div class="w100">
+                <div class="flex between w100">
+                    <div>
+                        <p>Nombre: {{user.first_name}}</p><p>Apellido: {{user.last_name}}</p>
+                    </div>
+                    <div>
+                        <p>Rol: {{user.role}}</p><p>Edad: {{user.age}}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>email: {{user.email}}</p>
+                    {{#if user.admin}}
+                    {{else}}
+                    <button>Cambiar Contraseña</button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{#if user.admin}}
+        {{else}}
+        {{!-- <div class="border w100">
+            <div class="flex between">
+                <p>Equipo</p>
+                <button>Editar</button>
+            </div>
+            <ul class="flex">
+                <li>Charizard</li>
+                <li>Pikachu</li>
+                <li>Cartepie</li>
+                <li>Starmie</li>
+                <li>Bulbasaur</li>
+                <li>Meaut</li>
+            </ul>
+        </div> --}}
+        <div class="flex colum border w100 center">
+        {{#if docs.premium}}
+            {{#if docs.noPremium}}
+                <p>Ya esta enviado el pedido al administrador para dejar de ser Premium!</p>
+            {{else}}
+                <button class="btn btnRED" onclick="noPremium('{{id}}')">Quiero dejar de ser PREMIUM!</button>
+            {{/if}}
+        {{else}}
+            <p>Para ser usuario Premium tenes que adjuntarnos en formato PDF:</p>
+
+            <div class="border w100">
+                <p>Foto DNI Frente y Dorso</p>
+                {{#if docs.identificacion}}
+                    <div class="w100 flex between">
+                        <p>{{docs.identificacion}}</p>
+                        <button class="btn btnRED" onclick="deleteDoc('identificacion', '{{id}}')">Borrar Archivo</button>
+                    </div>
+                {{else}}
+                    <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
+                        <div class="w100">
+                            <div class="flex file w100 between">
+                                <input type="file" name="identificacion" required>
+                                <button class="btn btnWARNIG" type="submit">Enviar!</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+            </div>
+
+            <div class="border w100">
+                <p>Constancia de Cuenta</p>
+                {{#if docs.cuenta}}
+                    <div class="w100 flex between">
+                        <p>{{docs.cuenta}}</p>
+                        <button class="btn btnRED" onclick="deleteDoc('cuenta', '{{id}}')">Borrar Archivo</button>
+                    </div>
+                {{else}}
+                    <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
+                        <div class="w100">
+                            <div class="flex file w100 between">
+                                <input type="file" name="cuenta" required>
+                                <button class="btn btnWARNIG" type="submit">Enviar!</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+            </div>
+
+            <div class="border w100">
+                <p>Servicio donde figure el Domicilio</p>
+                {{#if docs.domicilio}}
+                    <div class="w100 flex between">
+                        <p>{{docs.domicilio}}</p>
+                        <button class="btn btnRED" onclick="deleteDoc('domicilio', '{{id}}')">Borrar Archivo</button>
+                    </div>
+                {{else}}
+                    <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
+                        <div class="w100">
+                            <div class="flex file w100 between">
+                                <input type="file" name="domicilio" required>
+                                <button class="btn btnWARNIG" type="submit">Enviar!</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+            </div>
+            {{#if docs.completo}}
+                {{#if docs.getPremium}}
+                <p>Tu pedido para ser PREMIUM ya esta enviado al Administrador</p>
+                {{else}}
+                <button class="w100 btn btnWARNIG" onclick="getPremium('{{id}}')">Solicitar PREMUIM!</button>
+                {{/if}}
+            {{else}}
+            <p>Completa la Documentacion para ser Premium</p>
+            {{/if}}
+        {{/if}}
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<script>
+    function deleteDoc(doc, id) {
+        fetch(`/api/users/${id}/${doc}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al borrar documento');
+                }
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function getPremium(id) {
+        fetch(`/api/users/${id}/getPremium`, {
+            method: 'PUT'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al Solicitar PREMIUM');
+                }
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function noPremium(id) {
+        fetch(`/api/users/${id}/noPremium`, {
+            method: 'PUT'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al Solicitar PREMIUM');
+                }
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>

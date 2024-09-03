@@ -1,0 +1,27 @@
+<div class="content">
+    <div>
+        <div class="formContainer">
+            <p>Hace Login!</p>
+            <form action="api/users/register" method="POST" class="form">
+                <input class="marginForm" type="text" name="first_name" placeholder="Nombre" required>
+                <input class="marginForm" type="text" name="last_name" placeholder="Apellido" required>
+                <input class="marginForm" type="number" name="age" placeholder="Edad" required>
+                <input class="marginForm" type="email" name="email" placeholder="eMail" required>
+                <div class="lgFormItem inLine marginForm">
+                    <input id="loginPass" type="password" name="password" placeholder="Contraseña" required>
+                    <img class="ico" src="/img/noVisible.png" id="loginPass-ico" onclick="pass()" alt="">
+                </div>
+                <div class="lgFormItem inLine marginForm">
+                    <input class="lgFormPass" id="loginRePass" type="password" name="repassword" placeholder="Reingrese Contraseña" required>
+                    <img class="ico" src="/img/noVisible.png" id="loginRePass-ico" onclick="pass2()" alt="">
+                </div>
+                <button class="marginForm">Registrarme!</button>
+                {{#if error}}
+                    <p>{{error}}</p>
+                {{/if}}
+            </form>
+        </div>
+        <p>Ya estas registrado?</p>
+        <p><a class="linkTag" href="/login">Logueate aca!</a></p>
+    </div>
+</div>

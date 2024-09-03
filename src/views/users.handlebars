@@ -1,0 +1,82 @@
+<div class="content">
+    <div class="w100 flex colum center">
+        <h1>Usuarios</h1>
+        <div class="w100">
+            {{#each usuarios}}
+            <div class="border w100 flex">
+                <div>
+                    <img src="img/profile/{{this.img}}" alt="">
+                </div>
+                <div class="w100 marginRT">
+                    <div class="w100 flex between">
+                        <p>Usuario: {{this.first_name}} {{this.last_name}}</p>
+                        <p>ROL: {{this.role}}</p>
+                    </div>
+                    <p>eMail: {{this.email}}</p>
+                    {{#if this.noConnect}}
+                    <h3>Ultima Conexion: + de 2 Dias!!</h3>
+                    {{/if}}
+                    {{#if this.blocked.status}}
+                    <p>Cuenta BLOQUEADA!</p>
+                    {{/if}}
+                    {{#if this.noPremium}}
+                        <p>Pedido a USER pendiente!</p>
+                    {{/if}}
+                    {{#if this.getPremium}}
+                        <p>Pedido a PREMIUM pendiente!</p>
+                    {{/if}}
+
+                </div>
+                <div>
+                    {{#if this.noConnect}}
+                    <button class="btn btnRT btnRED" onclick="delUser('{{this._id}}')">Eliminar</button>
+                    {{/if}}
+                    {{#if this.premium}}
+                        <button class="btn btnRT btnWARNIG" onclick="cambioRol('{{this._id}}')">Cambiar a USER</button>
+                    {{else}}
+                        {{#if this.getPremium}}
+                            <button class="btn btnRT btnWARNIG" onclick="cambioRol('{{this._id}}')">Cambiar a PREMIUM</button>
+                        {{/if}}
+                    {{/if}}
+
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    function delUser(user) {
+        fetch(`/api/users/${user}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al vaciar el carrito');
+                }
+                location.reload();
+        })
+            .catch(error => {
+                console.error('Error:', error);
+        });
+    }
+
+    function cambioRol(user) {
+        fetch(`/api/users/premium/${user}`, {
+            method: 'PUT'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al vaciar el carrito');
+                }
+                location.reload();
+        })
+            .catch(error => {
+                console.error('Error:', error);
+        });
+    }
+</script>

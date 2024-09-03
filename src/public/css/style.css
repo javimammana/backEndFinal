@@ -1,0 +1,734 @@
+@font-face {
+  font-family: "PokemonClassic";
+  src: url(/css/font/PokemonClassic.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none !important;
+    font-family: "PokemonClassic";
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #e9ebec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .home {
+    justify-content: space-around;
+  }
+
+  .homeTxt {
+    text-align: center;
+  }
+
+  .linkTag {
+    color: #1c1c1c;
+  }
+
+  .linkTag:hover  {
+    color: #e6b01c;
+  }
+
+  .w40 {
+    width: 40%;
+  }
+
+  .w60{
+    width: 60%;
+  }
+
+  .salesList{
+    margin: 10px 5px;
+  }
+
+  .imgFav img {
+    width: 100px;
+  }
+
+  .salesList p {
+    font-size: 11px;
+  }
+
+  .favBTN {
+    margin-right: 10px;
+  }
+
+  .btn {
+    border: #1c1c1c solid 1px;
+    border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .btnRT {
+    margin: 10px 0px;
+  }
+
+  .btnRED {
+    background-color: #b60f0f;
+  }
+
+  .btnWARNIG {
+    background-color: #e6b01c;
+  }
+
+  .btnGREY {
+    background-color: #737373;
+  }
+
+  .btnCANT {
+    border: #1c1c1c solid 1px;
+    border-radius: 3px;
+    padding: 0px 5px;
+  }
+
+  .totalCart {
+    font-size: 15px;
+  }
+
+  .paginate {
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
+
+  .paginateItem {
+    color: #e6b01c;
+    margin: 0 5px;
+  }
+
+  .paginateActual {
+    color: #3c3c3c;
+    margin: 0 5px;
+  }
+
+  .contenedor {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* .   NavBar    */
+
+  nav {
+    position: fixed;
+    width: 100%;
+    background-color: #ececec;
+  }
+
+  .nav {
+    /* background-color: #ececec; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin: 20px 20px 10px 20px;
+  }
+
+  .line {
+    background-color: #1c1c1c;
+    height: 2px;
+    max-width: 100%;
+    margin-top: 2px;
+  }
+
+  .imgLogo {
+    max-width: 150px;
+  }
+
+  .loginNav {
+    display: flex;
+    align-items: center;
+  }
+
+  .loginNav li {
+    margin-left: 20px;
+  }
+
+  .navList {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .navList li {
+    margin: 0 10px;
+  }
+
+  .openNav {
+    display: none;
+    color: #1c1c1c;
+  }
+
+  .navMobil {
+    display: none;
+  }
+
+  .navMobilBox{
+    display: none;
+  }
+
+  .navMobilButtos {
+    display: none;
+    background-color: #1c1c1c;
+  }
+
+  .btnMenu {
+    border: none;
+    background-color: transparent;
+  }
+
+  .btnMenu img {
+    width: 20px;
+    cursor: pointer;
+  }
+
+  .btn {
+    padding: 2px 8px;
+  }
+
+  .cartWidget {
+    display: flex;
+  }
+
+  .cartWidget p {
+    margin-left: 10px;
+  }
+
+  /*    FOOTER     */
+
+.contFooter {
+  background-color: #1c1c1c;
+  /* height: 25px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footerClass {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
+
+.footerLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 20px;
+}
+
+.footerLine p {
+  font-size: 8px;
+  color: #ececec6b;
+}
+
+.footerRedes {
+  display: flex;
+}
+
+.footerRedes li {
+  margin: 8px;
+}
+
+.footerRedes li img {
+  width: 20px;
+}
+
+/*     MAIN     */
+
+/* FORM */
+
+.inLine {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.lgFormItem {
+  background-color: #1c1c1c;
+  border-radius: 3px;
+}
+
+.ico {
+  cursor: pointer;
+  height: 25px;
+}
+
+.formContainer {
+  max-width: 300px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0px;
+  border: #1c1c1c 6px double;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  align-items: center;
+}
+
+.form input {
+  padding: 10px;
+  font-size: 10px;
+  background-color: #1c1c1c;
+  color: #ececec;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.marginForm {
+  margin: 5px 0px;
+}
+
+.form button {
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #ececec;
+  color: #1c1c1c;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.formAlert {
+  color: #b60f0f;
+  font-size: 8px;
+  margin-left: 10px;
+  max-width: 250px;
+}
+
+.passForm {
+  position: relative;
+  z-index: 0;
+}
+
+.eyeForm {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #ececec;
+}
+
+.eyeForm span {
+  cursor: pointer;
+}
+
+/* REAL TIME PRODUCT */
+
+.imgRT img {
+  width: 150px;
+}
+
+#formRT {
+  display: none;
+}
+
+
+.menuRT {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  border: #1c1c1c 6px double;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  align-items: center;
+}
+
+.menuRT input {
+  margin: 5px 0px;
+  padding: 10px;
+  font-size: 10px;
+  background-color: #1c1c1c;
+  color: #ececec;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.borderRTI {
+  border: #1c1c1c 6px double;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.menuRT button {
+  width: 100%;
+  margin: 5px 0px;
+  padding: 5px;
+}
+
+.btnRTmenu {
+  width: 60%;
+}
+
+.novisible {
+  display: none;
+}
+
+.visibleRT {
+  display: block;
+}
+
+.loading {
+  justify-content: end;
+}
+
+.ss {
+  border: #b60f0f 6px double;
+}
+
+.sb {
+  border: #d57509 6px double;
+}
+
+.cs {
+  border: #1c1c1c 6px double;
+}
+
+.borderRT {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.listProducts {
+  padding: 5px;
+}
+
+
+/* LOGIN */
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 120px;
+}
+
+/*   PROFILE   */
+
+.imgProfile {
+  margin-right: 10px;
+  
+}
+
+.marginRT {
+  margin: 0px 10px;
+}
+
+.border {
+  border: #1c1c1c 6px double;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.flex {
+  display: flex;
+}
+
+.colum{
+  flex-direction: column;
+}
+
+.between {
+  justify-content: space-between;
+}
+.w100 {
+  width: 100%;
+}
+
+.center {
+  align-items: center;
+}
+
+/*   PRODUCTS   */
+
+.contProducts {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.imgProducts {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.imgProducts img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.priceProduct {
+  justify-content: end;
+  font-size: 20px;
+}
+
+.boxProduct {
+  width: 250px;
+  margin: 10px;
+}
+
+.btnFavorite {
+  height: 30px;
+  width: 30px;
+}
+
+.btnFavorite img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.btnProducts {
+  width: 180px;
+}
+
+
+/*    CARRITO    */
+
+.imgCart img {
+  width: 150px;
+}
+
+.total {
+  justify-content: end;
+}
+
+.infoCart {
+  padding: 0px 10px;
+}
+
+.der {
+  align-items: end;
+}
+
+.porductDetail {
+  margin: 15px;
+  justify-content: space-between;
+}
+
+.imgDetail {
+  max-width: 300px;
+  width: 100%;
+}
+
+.file button{
+  width: 200px;
+}
+
+.file input {
+  margin-right: 10px;
+}
+
+/*   CHAT   */
+
+.contenedorChat {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  width: 90%;
+}
+
+.stickyBottom {
+  position: sticky;
+  bottom: 0px;
+  background-color: #626262;
+  padding: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stickyBottom input {
+  max-width: 500px;
+  width: 95%;
+  padding: 10px;
+  color: #3c3c3c;
+}
+
+.msg {
+  border: solid 2px #000;
+  border-radius: 10px 10px 10px 0px;
+  padding: 8px;
+  background-color: #aeaeae;
+  margin: 5px 0px;
+  width: 80%;
+  margin-right: 20%;
+}
+
+.msg p {
+  padding-left: 20px;
+}
+
+.msgUser {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px #000;
+  border-radius: 10px 10px 0px 10px;
+  padding: 8px;
+  background-color: #ececec;
+  margin: 5px 0px;
+  width: 80%;
+  margin-left: 20%;
+  align-content: end;
+}
+
+.msgUser p {
+  padding-left: 20px;
+}
+
+
+  @media screen and (max-width: 700px) {
+
+    .boxRT {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btnRT {
+      flex-direction: row;
+    }
+
+    .infoRT {
+      flex-direction: column;
+    }
+
+    .updateRT {
+      width: 100%;
+    }
+
+    .infoRT div {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+
+  @media screen and (max-width: 630PX) {
+
+    /*    NAVBAR   */
+
+    .linkTag {
+      color: #e6b01c;
+    }
+
+    .openNav {
+      display: flex;
+      cursor: pointer;
+    }
+
+    .openNav p {
+      margin: 0 20px;
+    }
+
+    .navList {
+      display: none;
+    }
+
+    .loginNav {
+      display: none;
+    }
+
+    .navMobilBox {
+      display: block;
+      position: absolute;
+      height: 100vh;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #1c1c1c;
+      color: #ececec;
+      padding: 20px;
+      padding-top: 30px;
+      box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 3;
+    }
+
+    .navMobilBox.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .navMobilButtos {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .navMobil {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+    }
+
+    .navMobil li {
+      margin: 10px 0;
+    }
+
+    .closeNav {
+      color: #ececec;
+      cursor: pointer;
+    }
+
+    /*   FOOTER   */
+
+    .footerLine {
+      flex-direction: column-reverse;
+      padding-bottom: 10px;
+    }
+
+
+
+  }
+
+  @media screen and (max-width: 560px) {
+
+    .menuRT {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 300PX) {
+
+    .imgLogo {
+      max-width: 90px;
+    }
+
+    .mobileName {
+      display: none;
+    }
+  }

@@ -1,0 +1,69 @@
+<div class="content">
+    {{#if elementos}}
+    <div class="flex colum w100">
+    <div class="w100 flex colum center">
+        <h1>Products</h1>
+        <div class="flex w100 contProducts">
+            {{#each elementos}}
+                <div class="border boxProduct">
+                    <div class="imgProducts">
+                        <a href="/product/{{this._id}}">
+                            <img src="img/products/{{this.img}}" alt="Producto">
+                        </a>
+                    </div>
+                    <div class="flex colum w100">
+                        <p><a href="/product/{{this._id}}">{{this.title}}</a></p>
+                        <p>{{this.category}}</p>
+                        <p>stock: {{this.stock}}</p>
+                        <p class="flex priceProduct w100">${{this.price}}</p>
+                    </div>
+                    <div class="flex w100 between">
+                        {{#if this.stock}}
+                        <form action="/api/carts/{{../user.cart}}/product/{{this._id}}/products" method="POST">
+                            <button class="btnProducts btn btnGREY">Comprar!</button>
+                        </form>
+                        {{else}}
+                            {{#if this.notify}}
+                                <p class="">Notify!</p>
+                            {{else}}
+                                <form action="/api/products/{{this._id}}/notify/{{../user.email}}/products" method="POST">
+                                    <button class="btnProducts btn btnWARNIG">Notificarme!</button>
+                                </form>
+                            {{/if}}
+                        {{/if}}
+                        <form action="/api/products/{{this._id}}/favorite/{{../user.email}}/products" method="POST">
+                            <button class="btnFavorite"><img src="img/{{#if this.favorite}}favorite.png{{else}}nofavorite.png{{/if}}" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    {{#if pages}}
+    <div class="flex colum center w100">
+        <ul class="flex paginate">
+            {{#if products.hasPrevPage}}
+            <li><a class="paginateItem" href="/products?page={{products.prevPage}}&limit={{products.limit}}&query={{query}}&sort={{sort}}">Prev</a></li>
+            {{/if}}
+
+            {{#each pages}}
+                {{#if pageNow}}
+                <li class="paginateActual">{{this.page}}</li>
+                {{else}}
+                <li><a class="paginateItem" href="/products?page={{page}}&limit={{limit}}&query={{filtro}}&sort={{sort}}">{{this.page}}</a></li>
+                {{/if}}
+            {{/each}}
+
+            {{#if products.hasNextPage}}
+            <li><a class="paginateItem" href="/products?page={{products.nextPage}}&&limit={{products.limit}}&query={{query}}&sort={{sort}}">Next</a></li>
+            {{/if}}
+        </ul>
+    </div>
+    {{/if}}
+
+    </div>
+    {{else}}
+    <h1>No hay productos</h1>
+    {{/if}}
+</div>

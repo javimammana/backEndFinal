@@ -1,0 +1,84 @@
+<nav>
+    {{#if user}}
+    <div class="nav">
+        <div class="contenedor">
+            <div>
+                <a href=
+                {{#if user}}
+                    {{#if user.admin}}
+                    "/realTimeProduct"
+                    {{else}}
+                    "/products"
+                    {{/if}}
+                {{else}}
+                    "/"
+                {{/if}}
+                ><img class="imgLogo" src="/img/logo.png" alt="Logo"></a>
+            </div>
+            <ul class="loginNav">
+                {{#if user.admin}}
+                {{else}}
+                <li><button class="btnMenu"><a href="/carts"><img class="" src="/img/cesta-oscura.png" alt="Carrito"></a></button></li>
+                {{/if}}
+                <li>Hola <a class="linkTag" href="/profile">{{user.first_name}}!!</a></li>
+                <li><a href="/api/sessions/logout"><button class="btn btnRED">LOGOUT</button></a></li>
+            </ul>
+            <div class="openNav">
+                <p class="mobileName"><a class="linkTag" href="/profile">{{user.first_name}}!!</a></p>
+                <button class="btnMenu" onclick="openMenu()"><img src="/img/menu.png" alt="Menu"></button>
+            </div>
+            <div class="navMobilBox" id="navMenu">
+                <div class="navMobilButtos">
+                    {{#if user.admin}}
+                    <p>ADMIN!</p>
+                    {{else}}
+                    <button class="btnMenu"><a href="/carts"><img src="/img/cesta-clara.png" alt="Carrito"></a></button>
+                    {{/if}}
+                    <button class="btnMenu" onclick="closeMenu()"><img src="/img/close.png" alt="CerrarMenu"></button>
+                </div>
+                <div class="navMobil">
+                    <li><a class="linkTag" href="/profile">Perfil</a></li>
+                    {{#if user.admin}}
+                        {{>admin}}
+                    {{else}}
+                        {{#if user.premium}}
+                            {{>premium}}
+                        {{else}}
+                            {{>user}}
+                        {{/if}}
+                    {{/if}}
+                    <li><a class="linkTag" href="/api/sessions/logout">LogOut</a></li>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <ul class="navList">
+            {{#if user.admin}}
+                {{>admin}}
+            {{else}}
+                {{#if user.premium}}
+                    {{>premium}}
+                {{else}}
+                    {{>user}}
+                {{/if}}
+            {{/if}}
+
+        </ul>
+    </div>
+    {{else}}
+    <div class="nav">
+        <div class="contenedor">
+            <div>
+                <a href="/"><img class="imgLogo" src="/img/logo.png" alt="Logo"></a>
+            </div>
+            <div>
+                <a href="/login"><button class="btn btnGREY">LogIn</button></a>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <div class='line'></div>
+    <div class='line'></div>
+</nav>

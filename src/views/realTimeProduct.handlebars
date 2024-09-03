@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="w100 flex colum center">
+        <h1>RealTimeProducts</h1>
+        <div class="w100 flex colum center">
+            <button class="btnRTmenu btnGREY" id="btnToggleMenu">Agregar producto</button>
+            <div id="formRT" class="formContainer">
+                <form class="menuRT" action="" id="formRTform">
+                    <input type="text" placeholder="Nombre del producto" name="title" id="title" required>
+                    <input type="text" placeholder="Categoria del producto" name="category" id="category" required>
+                    <input type="text" placeholder="Descripcion del producto" name="description" id="description" required>
+                    <input type="number" placeholder="Precio del producto" name="price" id="price" required>
+                    <input type="text" placeholder="Codigo del producto" name="code" id="code" required>
+                    <input type="number" placeholder="Stock del producto" name="stock" id="stock" required>
+
+                    <button type="submit" id="button">Cargar!</button>
+                </form>
+            </div>
+            <h1>Productos en Base</h1>
+            <div class="listProducts w100 flex colum center" id="listProducts">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+    const rol = "{{user.role}}";
+    const userOwner = rol === "ADMIN" ? "ADMIN" : "{{user.email}}"
+</script>
+<script src="js/rtp.js"></script>

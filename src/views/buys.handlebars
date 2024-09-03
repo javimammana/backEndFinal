@@ -1,0 +1,44 @@
+<div class='content'>
+    <div class="w100 flex colum center">
+
+        {{#if buysUser}}
+            <h1>Mis Compras</h1>
+            <div class="flex border w100">
+                <ul>
+                    {{#each buysUser}}
+                    <li class="salesList"><p><a href="/buys/{{this.purchasesId}}">{{this.code}}</a></p></li>
+                    {{/each}}
+                </ul>
+                <div class="w100 flex colum border">
+                    <div>
+                        <p>Compra ID: {{ticket.code}}</p>
+                        <p>Estado: {{ticket.status}}</p>
+                    </div>
+                    <p>Detalle de compra</p>
+                    <div class="w100 line"></div>
+                    <div class="w100">
+                        {{#each ticket.products}}
+                        <div class="w100 flex colum">
+                            <p><a class="linkTag" href="/product/{{this.product._id}}">{{this.product.title}}</a></p> 
+                            <div class="flex between w100">
+                                <p> x {{this.quantity}} Uni.- Precio por unidad ${{this.price}}</p>
+                                <p class="der">${{this.totalPrice}}</p>
+                            </div>
+                        </div>
+                        <div class="line w100"></div>
+                        {{/each}}
+                    </div>
+                    <div class="line w100"></div>
+                    <div class="flex w100 between">
+                        <p class="">Valor total de Compra:</p>
+                        <p>${{ticket.amount}}.-</p>
+                    </div>
+                </div>
+            </div>
+
+        {{else}}
+            <h1>Aun no contas con Compras</h1>
+        {{/if}}
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="formContainer">
+        <p>Hace Login!</p>
+        <form action="/api/sessions/login" method="POST" class="form">
+            <input class="marginForm" type="email" name="email" placeholder="Usuario (eMail)" required>
+            <div class="lgFormItem inLine marginForm">
+                <input id="loginPass" type="password" name="password" placeholder="Contraseña" required>
+                <img class="ico" src="/img/noVisible.png" id="loginPass-ico" onclick="pass()" alt="">
+            </div>
+            <button class="marginForm">Login!</button>
+            <p><a class="linkTag" href="/resetPassword">No recuerdo mi Contraseña</a></p>
+            {{#if error}}
+                <p>{{error}}</p>
+            {{/if}}
+        </form>
+        <p>No estas reguistrado? <a class="linkTag" href="/register">Registrate!!</a></p>
+        <div><p>Ingresa con <a class="linkTag" href="/api/sessions/github">GITHUB</a></p></div>
+    </div>
+</div>
