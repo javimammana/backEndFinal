@@ -12,7 +12,9 @@
                     <p>{{product.code}} - STOCK: {{product.stock}}</p>
                 </div>
                 <div class="flex w100 between">
-                    <div><p>${{product.price}}</p></div>
+                    <div>
+                        <p>${{product.price}}</p>
+                    </div>
                     <div class="flex der productButton">
                         {{#if product.stock}}
                         <form action="/api/carts/{{user.cart}}/product/{{product._id}}/products" method="POST">

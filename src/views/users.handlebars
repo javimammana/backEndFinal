@@ -13,18 +13,20 @@
                         <p>ROL: {{this.role}}</p>
                     </div>
                     <p>eMail: {{this.email}}</p>
+                    <div class="w100 notificacionesADMIN">
                     {{#if this.noConnect}}
-                    <h3>Ultima Conexion: + de 2 Dias!!</h3>
+                    <h3 class="red">Ultima Conexion: + de 2 Dias!!</h3>
                     {{/if}}
                     {{#if this.blocked.status}}
-                    <p>Cuenta BLOQUEADA!</p>
+                    <p class="warning">Cuenta BLOQUEADA!</p>
                     {{/if}}
                     {{#if this.noPremium}}
-                        <p>Pedido a USER pendiente!</p>
+                        <p class="warning">Pedido a USER pendiente!</p>
                     {{/if}}
                     {{#if this.getPremium}}
-                        <p>Pedido a PREMIUM pendiente!</p>
+                        <p class="warning">Pedido a PREMIUM pendiente!</p>
                     {{/if}}
+                    </div>
 
                 </div>
                 <div>

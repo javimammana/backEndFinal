@@ -42,7 +42,7 @@
         <div class="flex colum border w100 center">
         {{#if docs.premium}}
             {{#if docs.noPremium}}
-                <p>Ya esta enviado el pedido al administrador para dejar de ser Premium!</p>
+                <p class="warning">Ya esta enviado el pedido al administrador para dejar de ser Premium!</p>
             {{else}}
                 <button class="btn btnRED" onclick="noPremium('{{id}}')">Quiero dejar de ser PREMIUM!</button>
             {{/if}}
@@ -54,7 +54,7 @@
                 {{#if docs.identificacion}}
                     <div class="w100 flex between inputProfile">
                         <p>{{docs.identificacion}}</p>
-                        <button class="btn btnRED" onclick="deleteDoc('identificacion', '{{id}}')">Borrar Archivo</button>
+                        <button class="btn btnRED btnDelDoc" onclick="deleteDoc('identificacion', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
@@ -73,7 +73,7 @@
                 {{#if docs.cuenta}}
                     <div class="w100 flex between inputProfile">
                         <p>{{docs.cuenta}}</p>
-                        <button class="btn btnRED" onclick="deleteDoc('cuenta', '{{id}}')">Borrar Archivo</button>
+                        <button class="btn btnRED btnDelDoc" onclick="deleteDoc('cuenta', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
@@ -92,7 +92,7 @@
                 {{#if docs.domicilio}}
                     <div class="w100 flex between inputProfile">
                         <p>{{docs.domicilio}}</p>
-                        <button class="btn btnRED" onclick="deleteDoc('domicilio', '{{id}}')">Borrar Archivo</button>
+                        <button class="btn btnRED btnDelDoc" onclick="deleteDoc('domicilio', '{{id}}')">Borrar Archivo</button>
                     </div>
                 {{else}}
                     <form action="/api/users/{{id}}/documents" method="POST" class="" enctype="multipart/form-data">
@@ -107,7 +107,7 @@
             </div>
             {{#if docs.completo}}
                 {{#if docs.getPremium}}
-                <p>Tu pedido para ser PREMIUM ya esta enviado al Administrador</p>
+                <p class="red">Tu pedido para ser PREMIUM ya esta enviado al Administrador</p>
                 {{else}}
                 <button class="w100 btn btnWARNIG" onclick="getPremium('{{id}}')">Solicitar PREMUIM!</button>
                 {{/if}}

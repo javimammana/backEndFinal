@@ -217,7 +217,7 @@ class CartController {
 
             //reviso que se pueda cubrir los stock que pide el cliente
             for (let prod of cart.products) {
-                prod.quantity <= prod.product.stock ? enStock.push({...prod, price: prod.product.price.toFixed(2)}) : sinStock.push(prod);
+                prod.quantity <= prod.product.stock ? enStock.push({...prod, price: prod.product.price}) : sinStock.push(prod);
             }
 
             //si ningun producto cubre el stock pedido del cliente, se corta el codigo

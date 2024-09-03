@@ -27,6 +27,22 @@
     font-size: 12px;
   }
 
+  .btnDelDoc {
+    max-width: 250px;
+  }
+
+  .warning {
+    color: #e6b01c;
+  }
+
+  .notificacionesADMIN {
+    margin-top: 20px;
+  }
+
+  .red {
+    color: #b60f0f;
+  }
+
   .home {
     justify-content: space-around;
   }

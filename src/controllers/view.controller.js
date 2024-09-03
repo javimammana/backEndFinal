@@ -92,7 +92,6 @@ class ViewController {
     async viewProfile (req, res) {
         const user = req.user;
 
-        console.log(user)
         let docs;
         let id;
         if(user.role !== "ADMIN") {
@@ -198,8 +197,6 @@ class ViewController {
                 favorite: userFav.favorite.includes(prod._id)
             };
             
-            console.log(product)
-            
             res.render("product", {
                 title: `${product.title}`,
                 product,
@@ -218,7 +215,6 @@ class ViewController {
         try{
 
             let cart = await cartServices.getCartById(user.cart);
-            // console.log(cart.products)
 
             const cartTotal = cart.products.map(inCart => {
                 const totalProd = {
@@ -272,8 +268,6 @@ class ViewController {
                 return prodFav;
             })
 
-            console.log(favorites)
-
             res.render("favorite", {
                 title: `Productos favoritos de ${user.first_name}`,
                 user,
@@ -309,7 +303,6 @@ class ViewController {
             const getPremium = us.documents.find(element => element.name === "premium");
             const noPremium = us.documents.find(element => element.name === "nopremium");
 
-            console.log(us);
             const dateNow = new Date();
 
             const tiempoDesconectado = dateNow - us.last_connection;
@@ -377,7 +370,6 @@ class ViewController {
 
             res.render("checkout", {
                 title: `Detalle de Compra`,
-                fileCss: "style.css",
                 user,
                 buy,
                 cart
@@ -393,16 +385,13 @@ class ViewController {
             const user = req.user
             const { tid } = req.params;
             const findUser = await userServices.getUserByEmail({email: user.email});
-            console.log(findUser.purchaser)
 
-            if (!findUser.purchaser) {
-                console.log("entro aca!")
+            if (!findUser.purchases) {
                 const ticket = false;
                 const buysUser = false;
 
                 res.render("buys", {
-                    title: `Mis compras`,
-                    fileCss: "style.css",
+                    title: 'Mis compras',
                     user,
                     buysUser,
                     ticket
@@ -434,9 +423,11 @@ class ViewController {
                 products: ticketTotalprice
             }
 
+            console.log(buysUser)
+            console.log(ticket)
+
             res.render("buys", {
-                title: `Mis compras`,
-                fileCss: "style.css",
+                title: "Mis compras",
                 user,
                 buysUser,
                 ticket
@@ -456,8 +447,6 @@ class ViewController {
         const tic = await ticketServices.getTickets();
 
         if (tic.length === 0) {
-
-            console.log("Entro aca!")
             res.render("sales", {
                 title:"Administrador de Ventas",
                 user,
@@ -491,8 +480,6 @@ class ViewController {
             products: ticketTotalprice
         }
 
-
-        console.log(ticket)
         try {
             
 
